@@ -1,1 +1,6 @@
 c:\users\wecancodeit\documents\visual studio 2015\Projects\Deck of Cards\Deck of Cards\bin\Debug\Deck of Cards.exe.config
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Deck of Cards\Deck of Cards\obj\Debug\Deck of Cards.csprojResolveAssemblyReference.cache
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Deck of Cards\Deck of Cards\bin\Debug\Deck of Cards.exe
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Deck of Cards\Deck of Cards\bin\Debug\Deck of Cards.pdb
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Deck of Cards\Deck of Cards\obj\Debug\Deck of Cards.exe
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Deck of Cards\Deck of Cards\obj\Debug\Deck of Cards.pdb
