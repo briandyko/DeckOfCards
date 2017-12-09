@@ -45,25 +45,26 @@ namespace Deck_of_Cards
         //}
 
 
-        public int Hit(int value/*, string suit*/)
+        public int Hit(int handTotal/*, string suit*/)
         {
-            int newValue;
-            Random rand = new Random();
-            newValue = value + rand.Next(3, 9);
+            Random newCard = new Random();
+            int hitCard = newCard.Next(1, 10);
+            int hitTotal = handTotal + hitCard;
 
-            return newValue;
-
-                      
+            return hitTotal;                
         }
 
-        //public void isBusted()
-        //{
-        //    if (Hand == 21)
-        //    {
+        public void DealerShows()
+        {
+            Random dealer = new Random();
+            int dealersHand = dealer.Next(8, 21);
+            Console.WriteLine("The dealer's hand is " + dealersHand);
+        }
 
-        //    }
-        //}
+        
 
+
+        
 
     }
 }
