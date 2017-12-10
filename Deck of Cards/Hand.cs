@@ -54,11 +54,11 @@ namespace Deck_of_Cards
             return hitTotal;                
         }
 
-        public void DealerShows()
+        public void DealerShows(int dealersHandTotal)
         {
             Random dealer = new Random();
-            int dealersHand = dealer.Next(8, 21);
-            Console.WriteLine("The dealer's hand is " + dealersHand);
+            dealersHandTotal = dealer.Next(8, 21);
+            Console.WriteLine("The dealer's hand is " + dealersHandTotal);
         }
 
         

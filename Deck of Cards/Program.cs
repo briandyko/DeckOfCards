@@ -30,34 +30,46 @@ namespace Deck_of_Cards
                 if (response == "yes")
                 {
                     handTotal = hand.Hit(handTotal);
-                    //int newTotal = hand.Hit(handTotal);
-                    //Console.WriteLine(newTotal);
                     Console.WriteLine(handTotal);
-                    if (/*newTotal*/handTotal > 21)
+                    if (handTotal > 21)
                     {
-                        Console.WriteLine("busted\n");
+                        Console.WriteLine("Busted! Dealer Wins!!!\n");
                     }
 
                     //need to have functionality for if you stay and dealer shows hand and dealer needs to hit.
                 }
 
-                else if (response == "no")
+                if (response == "no")
                 {
                     Console.WriteLine("Let's see what the dealer's got.");
-                    hand.DealerShows();
-                    //need to have functionality for if dealer's hand is higher
+                    Hand dealersHand = new Hand(4, 7);
+                    int dealersHandTotal = dealersHand.ValueFirstCard + dealersHand.ValueSecondCard;
+                    hand.DealerShows(dealersHandTotal);
+
+                    if (dealersHandTotal >= handTotal)
+                    {
+                        Console.WriteLine("Dealer wins.");
+                    }
+                    else if (dealersHandTotal < handTotal || dealersHandTotal <= 16)
+                    {
+                        dealersHand.Hit(dealersHandTotal);
+                    }
+                    else if (dealersHandTotal < handTotal)
+                    {
+                        Console.WriteLine("You win all the money! Congrats!");
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("make a valid choice");
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("make a valid choice");
-                }
+
             }
 
+            while (handTotal < 21 && response != "no");
 
-
-            while (handTotal < 21 && response == "yes");
-
-
+            
             Console.WriteLine("Thanks for playing!");
 
 
