@@ -18,7 +18,7 @@ namespace Deck_of_Cards
 
             int cardOne = first.Next(1, 10);
             int cardTwo = second.Next(1, 10);
-             
+
             Hand hand = new Hand(cardOne, cardTwo);
 
             int handTotal = hand.ValueFirstCard + hand.ValueSecondCard;
@@ -38,53 +38,59 @@ namespace Deck_of_Cards
                 {
                     handTotal = hand.Hit(handTotal);
                     Console.WriteLine(handTotal);
-                    //if (handTotal > 21)
-                    //{
-                    //    Console.WriteLine("Busted! Dealer Wins!!!\n");
-                    //}
+                    if (handTotal == 21)
+                    {
+                        Console.WriteLine("Blackjack! You win!!!");
+                    }
+                    else if (handTotal > 21)
+                    {
+                        Console.WriteLine("Busted! Dealer Wins!!!\n");
+                    }
 
                     //need to have functionality for if you stay and dealer shows hand and dealer needs to hit.
                 }
 
                 else if (response == "no")
                 {
-                    Console.WriteLine("Let's see what the dealer's got.");
                     Hand dealersHand = new Hand(4, 7);
                     int dealersHandTotal = dealersHand.ValueFirstCard + dealersHand.ValueSecondCard;
-                    hand.DealerShows(dealersHandTotal);
 
                     if (dealersHandTotal >= handTotal)
                     {
                         Console.WriteLine("Dealer wins.");
                     }
-                    else if (dealersHandTotal < handTotal || dealersHandTotal <= 16)
+                    if (dealersHandTotal < handTotal && dealersHandTotal <= 16)
                     {
-                        dealersHand.Hit(dealersHandTotal);
-                    }
-                    else if (dealersHandTotal < handTotal)
-                    {
-                        Console.WriteLine("You win all the money! Congrats!");
-                    }
+                        int newTotal = dealersHand.Hit(dealersHandTotal);
+                        Console.WriteLine("The dealer's got {0}", newTotal);
+                        while (newTotal < 16 && newTotal > 22)
+                        {
+                            newTotal = dealersHand.Hit(newTotal);
+                        }
 
-                    else
-                    {
-                        Console.WriteLine("make a valid choice");
+                        if (newTotal >= handTotal && newTotal < 22)
+                        {
+                            Console.WriteLine("Dealer wins big time!");
+                        }
+                        else if (handTotal > newTotal)
+                        {
+                            Console.WriteLine("You win all the money! Congrats!");
+                        }
                     }
+         
                 }
 
             }
 
             while (handTotal < 21 && response != "no");
 
-            
+
             Console.WriteLine("Thanks for playing!");
 
 
 
 
         }
-        
-    }
-    }
-  
 
+    }
+}

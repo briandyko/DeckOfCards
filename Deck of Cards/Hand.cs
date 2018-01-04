@@ -20,8 +20,6 @@ namespace Deck_of_Cards
 
         }
 
-
-
         public int Hit(int handTotal)
         {
             Random newCard = new Random();
@@ -30,14 +28,6 @@ namespace Deck_of_Cards
 
             return hitTotal;                
         }
-
-        public void DealerShows(int dealersHandTotal)
-        {
-            Random dealer = new Random();
-            dealersHandTotal = dealer.Next(8, 21);
-            Console.WriteLine("The dealer's hand is " + dealersHandTotal);
-        }
-
         
 
 
