@@ -12,7 +12,14 @@ namespace Deck_of_Cards
 
         static void Main(string[] args)
         {
-            Hand hand = new Hand(3, 2);
+            Random first = new Random();
+            Random second = new Random();
+
+
+            int cardOne = first.Next(1, 10);
+            int cardTwo = second.Next(1, 10);
+             
+            Hand hand = new Hand(cardOne, cardTwo);
 
             int handTotal = hand.ValueFirstCard + hand.ValueSecondCard;
 
@@ -31,15 +38,15 @@ namespace Deck_of_Cards
                 {
                     handTotal = hand.Hit(handTotal);
                     Console.WriteLine(handTotal);
-                    if (handTotal > 21)
-                    {
-                        Console.WriteLine("Busted! Dealer Wins!!!\n");
-                    }
+                    //if (handTotal > 21)
+                    //{
+                    //    Console.WriteLine("Busted! Dealer Wins!!!\n");
+                    //}
 
                     //need to have functionality for if you stay and dealer shows hand and dealer needs to hit.
                 }
 
-                if (response == "no")
+                else if (response == "no")
                 {
                     Console.WriteLine("Let's see what the dealer's got.");
                     Hand dealersHand = new Hand(4, 7);
